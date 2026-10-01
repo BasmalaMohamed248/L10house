@@ -1,0 +1,357 @@
+/*Line Width in NavBar*/
+@keyframes lineWidth {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/*Progress*/
+@keyframes progress {
+  to {
+    background-position: 200% 0;
+  }
+}
+
+/*up to at home*/
+@keyframes toUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*bright of home */
+@keyframes rotateEarth {
+  from {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.3);
+  }
+  to {
+    filter: brightness(1);
+  }
+}
+
+/*earth to up onn home*/
+@keyframes earthToUp {
+  0%,
+  100% {
+    transform: scale(1.1) translateY(20px);
+  }
+  50% {
+    transform: scale(1.1) translateY(-5px);
+  }
+}
+
+/*logo animation*/
+@keyframes logoAnimation {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.15);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.1);
+  }
+}
+
+/*logo animation2*/
+@keyframes arrow {
+  from {
+    left: 0%;
+  }
+  to {
+    left: 150%;
+  }
+}
+/*span i navBar button*/
+@keyframes span1 {
+  0% {
+    width: 90%;
+  }
+  50% {
+    width: 45%;
+  }
+  100% {
+    width: 90%;
+  }
+}
+
+/*arrows on home*/
+@keyframes first {
+  0% {
+    top: 0;
+    opacity: 1;
+  }
+  50% {
+    top: 0;
+    opacity: 1;
+  }
+  100% {
+    top: 0;
+    opacity: 0;
+  }
+}
+
+/*arrows on home*/
+@keyframes arrowMove2 {
+  0% {
+    top: 0;
+    opacity: 1;
+  }
+  50% {
+    top: 15px;
+    opacity: 1;
+  }
+  100% {
+    top: 15px;
+    opacity: 0;
+  }
+}
+
+/*arrows on home*/
+@keyframes arrowMove3 {
+  0% {
+    top: 0;
+    opacity: 1;
+  }
+  50% {
+    top: 30px;
+    opacity: 1;
+  }
+  100% {
+    top: 30px;
+    opacity: 0;
+  }
+}
+
+/*layer on navBar when i open ul*/
+@keyframes backgroundLayer {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/*stars animation*/
+@keyframes starsAnimateOnTheme {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/*delay li in orderList*/
+
+@keyframes showLi {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/*services boxes*/
+@keyframes floatIcon {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/*spin icon in services*/
+@keyframes spinIcon {
+  from {
+    transform: rotateY(0) scale(1);
+  }
+  to {
+    transform: rotateY(360deg) scale(1.15);
+  }
+}
+
+/*image shadow in popup services */
+@keyframes imageShadow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(#ee5e00, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 0 22px rgba(#ee5e00, 0);
+  }
+}
+
+/*sector anchor*/
+@keyframes sectorAnchor {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(25px) scale(1.05);
+  }
+}
+
+/*in sector*/
+@keyframes cardAnimation {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*no result in sector popup*/
+@keyframes noResultsIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.1);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/*animation of card in lang popup*/
+@keyframes langAnimation {
+  from {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/*li in languages*/
+@keyframes liInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/*li in languages*/
+@keyframes liInRight {
+  from {
+    opacity: 0;
+    transform: translateX(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/*sectors part2*/
+@keyframes floatCircle {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(30px, -35px);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes phoneHover {
+  0% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: rotate(12deg) scale(1.15);
+  }
+
+  60% {
+    transform: rotate(-10deg) scale(1.15);
+  }
+
+  100% {
+    transform: rotate(0) scale(1.08);
+  }
+}
+
+/*footer*/
+
+@keyframes footerLine {
+  0% {
+    left: -30%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes logoAnimationOnLoadingPage {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes loadingText {
+  0%,
+  100% {
+    opacity: 0.45;
+    letter-spacing: 5px;
+  }
+
+  50% {
+    opacity: 1;
+    letter-spacing: 8px;
+  }
+}

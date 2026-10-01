@@ -1,0 +1,136 @@
+@use "../abstracts/shares" as *;
+
+#why_us {
+  h4 {
+    color: $orangeColor;
+    font-size: 4rem;
+    letter-spacing: 1px;
+    margin: auto;
+    text-align: center;
+    position: relative;
+    width: fit-content;
+    &::after {
+      content: "";
+      width: 30%;
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      background-color: $orangeColor;
+      height: 4px;
+      border-radius: 20px;
+      transform: translateX(-50%);
+      transition-duration: 0.5s;
+    }
+  }
+  &:hover h4::after {
+    width: 80%;
+  }
+  .col-lg-4 {
+    margin-top: 20px;
+    .item {
+      background-color: #ee5e00;
+      transition-duration: 0.5s;
+      width: 350px;
+      height: 450px;
+      margin: auto;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+      position: relative;
+      @include respond(350) {
+        width: 280px;
+        margin-bottom: 25px;
+      }
+      &:hover .box {
+        transform: translate(-10px, 10px);
+        h3::after {
+          width: 100%;
+        }
+        p {
+          max-height: 300px;
+          opacity: 1;
+          transform: none;
+          margin-top: 6px;
+        }
+      }
+
+      .box {
+        transition-duration: 0.5s;
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        @include centre(flex-end, flex-start);
+        flex-direction: column;
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+        &::before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          content: "";
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(0deg, #1e2022 0%, transparent 75%);
+          z-index: 2;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 50%;
+          transform: skew(-10deg);
+          height: 100%;
+          background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+          z-index: 3;
+          transition-duration: 0.8s;
+        }
+        > * {
+          position: relative;
+          z-index: 5;
+        }
+        h3 {
+          font-weight: 800;
+          font-size: 2rem;
+          padding-bottom: 14px;
+          &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            border-radius: 10px;
+            background: $orangeColor;
+            transition-duration: 0.8s;
+          }
+        }
+        p {
+          letter-spacing: 1px;
+          line-height: 1.5;
+          font-size: 1rem;
+          margin: 0;
+          max-height: 0; /*to make it dont take a place when it have opacity=0 */
+          opacity: 0;
+          transform: translateY(20px);
+          transition-duration: 0.5s;
+        }
+      }
+      &:hover .box::after {
+        left: 150%;
+        transition-duration: 0.8s;
+      }
+    }
+  }
+  .col-lg-4:nth-of-type(1) .box {
+    background-image: url("../images/best.jpg");
+  }
+  .col-lg-4:nth-of-type(2) .box {
+    background-image: url("../images/solutions.jpg");
+    background-position: top center;
+  }
+  .col-lg-4:nth-of-type(3) .box {
+    background-image: url("../images/teamwork.jpg");
+  }
+}

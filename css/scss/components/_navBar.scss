@@ -1,0 +1,503 @@
+@use "../abstracts/shares" as *;
+
+nav.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  color: $greenColor;
+  transition-duration: 0.5s;
+  /*logo*/
+  .navbar-brand {
+    width: 12%;
+    position: relative;
+    transition-duration: 0.5s;
+    overflow: hidden;
+    @include respond(350) {
+      width: 25%;
+    }
+    @include respond(450) {
+      width: 18%;
+    }
+    @include respond(850) {
+      width: 15%;
+    }
+    @include respond(1050) {
+      width: 10%;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 30%;
+      height: 190%;
+      transform: rotate(45deg);
+      background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+      animation: arrow 1s ease 0.5s;
+    }
+    & img {
+      animation: logoAnimation 1s ease;
+    }
+  }
+  /*button*/
+  .navbar-toggler {
+    position: relative;
+    border: none;
+    background: transparent;
+    width: 32px;
+    height: 20px;
+    outline: none;
+    box-shadow: none;
+    border: none;
+    &::focus {
+      outline: none;
+      box-shadow: none;
+      border: none;
+    }
+    & span {
+      position: absolute;
+      left: 0;
+      display: block;
+      height: 3px;
+      background-color: $greenColor;
+      border-radius: 10px;
+    }
+    & span:nth-child(1) {
+      top: 0;
+      animation-name: span1;
+      animation-duration: 1.1s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    & span:nth-child(2) {
+      top: 6px;
+      animation-name: span1;
+      animation-duration: 0.5s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+
+    & span:nth-child(3) {
+      top: 12px;
+      animation-name: span1;
+      animation-duration: 0.7s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+    @include respond(350) {
+      margin-right: 20px;
+    }
+  }
+  /*navbar ul*/
+  .navbar-collapse {
+    @include respond(350) {
+      background-color: #fff;
+      width: 80%;
+      border-radius: 15px;
+      text-align: center;
+      max-width: 280px;
+      margin: auto;
+      @include respond(450) {
+        max-width: 400px;
+      }
+      @include respond(650) {
+        max-width: 550px;
+      }
+      @include respond(1050) {
+        max-width: initial;
+        background-color: transparent;
+        font-size: 12px;
+      }
+      @include respond(1250) {
+        font-size: 16px;
+      }
+      .nav-link {
+        &:not(:last-child) {
+          margin-bottom: 20px;
+        }
+        &:nth-of-type(1) {
+          margin-top: 20px;
+        }
+        &:nth-of-type(8) {
+          margin-bottom: 20px;
+        }
+        &::after {
+          bottom: 8px !important;
+        }
+      }
+    }
+    @include respond(350) {
+      position: relative;
+
+      &.show::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: -1;
+        animation: backgroundLayer 0.3s ease forwards;
+      }
+    }
+    @include respond(450) {
+      position: relative;
+
+      &.show::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: -1;
+        animation: backgroundLayer 0.3s ease forwards;
+      }
+    }
+    @include respond(650) {
+      position: relative;
+
+      &.show::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: -1;
+        animation: backgroundLayer 0.3s ease forwards;
+      }
+    }
+    @include respond(850) {
+      position: relative;
+
+      &.show::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: -1;
+        animation: backgroundLayer 0.3s ease forwards;
+      }
+    }
+    @include respond(1050) {
+      position: relative;
+
+      &.show::before {
+        content: "";
+        position: initial;
+        inset: 0;
+        background-color: transparent;
+        z-index: -1;
+        animation: backgroundLayer 0.3s ease forwards;
+      }
+    }
+  }
+  /*nav items*/
+  .nav-item {
+    /* For Loop ??? */
+    &:nth-child(1) .nav-link:hover {
+      color: #2d6a4f;
+      text-shadow: 0 0 12px rgba(#2d6a4f, 0.5);
+    }
+    &:nth-child(2) .nav-link:hover {
+      color: #e76f51;
+      text-shadow: 0 0 12px rgba(#e76f51, 0.5);
+    }
+    &:nth-child(3) .nav-link:hover {
+      color: #264653;
+      text-shadow: 0 0 12px rgba(#264653, 0.5);
+    }
+    &:nth-child(4) .nav-link:hover {
+      color: #f4a261;
+      text-shadow: 0 0 12px rgba(#f4a261, 0.5);
+    }
+    &:nth-child(5) .nav-link:hover {
+      color: #6a994e;
+      text-shadow: 0 0 10px rgba(rgb(53, 38, 11), 0.5);
+    }
+    &:nth-child(6) .nav-link:hover {
+      color: #bc6c25;
+      text-shadow: 0 0 12px rgba(#bc6c25, 0.5);
+    }
+    &:nth-child(7) .nav-link:hover {
+      color: #40916c;
+      text-shadow: 0 0 12px rgba(#40916c, 0.5);
+    }
+    &:nth-child(8) .nav-link:hover {
+      color: #d62828;
+      text-shadow: 0 0 12px rgba(#d62828, 0.5);
+    }
+    .theme-btn {
+      border: none;
+      background: transparent;
+      padding: 0;
+      box-shadow: none;
+      outline: none;
+      cursor: pointer;
+      .theme-bg {
+        position: relative;
+        width: 60px;
+        height: 30px;
+        background: linear-gradient(90deg, #87ceeb, #ffd580); /*plugins ??*/
+        border-radius: 30px;
+        transition-duration: 0.5s;
+        overflow: hidden;
+      }
+      .circle {
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 24px;
+        height: 24px;
+        background: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center; /*icon in center we use flex best than using padding*/
+        transition-duration: 0.5s;
+        z-index: 2;
+        i {
+          position: absolute;
+          font-size: 12px;
+          transition-duration: 0.5s;
+        }
+        .icon-sun {
+          color: #f4a261;
+          opacity: 1;
+          transform: scale(1) rotate(0deg);
+        }
+        .icon-moon {
+          color: #264653;
+          opacity: 0;
+          transform: scale(0.5) rotate(-90deg);
+        }
+      }
+
+      .theme-stars {
+        position: absolute;
+        opacity: 0;
+        transition-duration: 0.5s;
+        span {
+          position: absolute;
+          width: 3px;
+          height: 3px;
+          background: #fff;
+          border-radius: 50%;
+          animation: starsAnimateOnTheme 1.5s linear infinite;
+          &:nth-child(1) {
+            top: 6px;
+            left: 12px;
+            animation-delay: 0s;
+          }
+          &:nth-child(2) {
+            top: 18px;
+            left: 20px;
+            animation-delay: 0.5s;
+          }
+          &:nth-child(3) {
+            top: 10px;
+            left: 28px;
+            animation-delay: 1s;
+          }
+        }
+      }
+      &.dark {
+        .theme-bg {
+          background: linear-gradient(90deg, #0f2027, #203a43);
+        }
+        .circle {
+          transform: translateX(30px);
+          background: #1a1a2e;
+        }
+        .icon-sun {
+          opacity: 0;
+          transform: scale(0.5) rotate(90deg);
+        }
+        .icon-moon {
+          opacity: 1;
+          transform: scale(1) rotate(0deg);
+        }
+        .theme-stars {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  /*nav link*/
+  .nav-link {
+    width: fit-content;
+    margin: auto;
+    color: $greenColor;
+    position: relative;
+    padding: 0;
+    transition:
+      color 0.3s ease,
+      transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+    }
+
+    &:focus {
+      color: $greenColor;
+    }
+
+    &.active {
+      color: $greenColor;
+      &::after {
+        background-color: $orangeColor;
+        width: 100%;
+        display: block;
+        height: 2px;
+        border-radius: 30px;
+        transform: translate(-50%, 10px);
+        transition-duration: 0.5s;
+        position: absolute;
+        left: 50%;
+        bottom: 0px;
+      }
+    }
+
+    &::after {
+      content: "";
+      background-color: $orangeColor;
+      width: 0%;
+      display: block;
+      height: 2px;
+      border-radius: 30px;
+      transform: translate(-50%, 10px);
+      transition-duration: 0.5s;
+      position: absolute;
+      left: 50%;
+      bottom: 0px;
+    }
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
+  /*dropDown Menu*/
+  ul.dropdown-menu {
+    background-color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.12);
+    margin-top: 15px !important;
+    min-width: 155px; /*to make it dont grow when i hover on li*/
+    opacity: 0;
+    font-size: 14px;
+    padding: 15px 5px;
+    transform: translateY(-15px) scale(0.95);
+    visibility: hidden;
+    display: none;
+    transition-duration: 0.6s;
+    @include respond(350) {
+      width: 200px;
+      background-color: #b9b9b9;
+      margin: auto;
+    }
+    &.show {
+      opacity: 1;
+      display: block;
+      transform: translateY(0) scale(1);
+      visibility: visible;
+      box-shadow:
+        rgb(113, 159, 61, 0.4) -5px 5px,
+        rgb(113, 159, 61, 0.3) -10px 10px,
+        rgb(113, 159, 61, 0.2) -15px 15px,
+        rgb(113, 159, 61, 0.1) -20px 20px,
+        rgb(113, 159, 61, 0.05) -25px 25px;
+    }
+
+    li {
+      .dropdown-item {
+        color: $greenColor;
+        border-radius: 8px;
+        padding: 10px 5px;
+        font-weight: 500;
+        position: relative;
+        transition-duration: 0.3s;
+        overflow: hidden;
+
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 100%;
+          width: 3px;
+          background-color: $orangeColor;
+          transform: scaleY(0);
+          transition-duration: 0.3s;
+        }
+
+        &:hover,
+        &:focus {
+          background-color: rgba($orangeColor, 0.08);
+          color: $orangeColor;
+          padding-left: 12px;
+
+          &::before {
+            transform: scaleY(1);
+          }
+        }
+      }
+    }
+  }
+
+  /*icon on hover show*/
+  .icon-reveal {
+    opacity: 0;
+    width: 5px;
+    margin-right: 15px;
+    transition-duration: 0.6s;
+    display: inline-block;
+    transform: translateY(-5px);
+  }
+
+  /*navLink Icon*/
+  .nav-link:hover .icon-reveal {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+  /*navLink Icon*/
+  .nav-link.active .icon-reveal {
+    display: none;
+  }
+
+  /*navBar scrolled*/
+  &.scrolled {
+    background: #fff;
+    .navbar-brand {
+      width: 10%;
+    }
+  }
+  /*up*/
+  &.up {
+    height: 90px;
+  }
+}
+/*darkTheme*/
+body.dark-mode nav.navbar.scrolled {
+  background-color: #18191a;
+
+  .nav-link {
+    color: #fff;
+
+    &:focus {
+      color: #fff;
+    }
+
+    &.active {
+      color: $orangeColor;
+    }
+  }
+
+  .navbar-toggler span {
+    background-color: #fff;
+  }
+
+  .navbar-brand {
+    width: 10%;
+  }
+}

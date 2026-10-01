@@ -1,0 +1,187 @@
+@use "../abstracts/shares" as *;
+
+#home {
+  .part {
+    align-items: center;
+    @include respond(350) {
+      align-items: start;
+    }
+    @include respond(850) {
+      align-items: center;
+    }
+  }
+  .part1 {
+    @include respond(350) {
+      margin-top: 75px;
+    }
+    @include respond(450) {
+      margin-top: 110px;
+    }
+    @include respond(850) {
+      margin-top: 0px;
+    }
+  }
+  .part2 {
+    @include respond(350) {
+      width: 85%;
+      margin: auto;
+      max-width: 300px;
+    }
+  }
+  h1 {
+    color: $greenColor;
+    font-size: 6rem;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: toUp 0.8s ease forwards;
+    animation-delay: 0.2s;
+    @include respond(350) {
+      font-size: 4.5rem;
+    }
+    @include respond(450) {
+      font-size: 5rem;
+    }
+    @include respond(850) {
+      font-size: 5.5rem;
+    }
+    @include respond(1050) {
+      font-size: 6rem;
+    }
+  }
+  > .container > .row > .part1 p {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: toUp 0.8s ease forwards;
+    animation-delay: 0.4s;
+  }
+  p {
+    color: #555;
+  }
+  .cd-intro {
+    margin: 0;
+    margin-left: -5px;
+    margin-block: 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: toUp 0.8s ease forwards;
+    animation-delay: 0.6s;
+    p {
+      color: $orangeColor;
+      font-weight: 500;
+    }
+    .cd-headline {
+      font-size: 20px;
+      text-align: left;
+    }
+    span.cd-words-wrapper {
+      &::after {
+        background-color: $orangeColor;
+      }
+    }
+  }
+  .video {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: toUp 0.8s ease forwards;
+    animation-delay: 0.8s;
+    i {
+      color: $greenColor;
+      cursor: pointer;
+      transition-duration: 0.5s;
+      position: relative;
+      z-index: 10;
+      &:hover {
+        color: #fff;
+      }
+      &::after {
+        @include createAfterAndBefore(0%, 0%);
+        background-color: $greenColor;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition-duration: 0.5s;
+        z-index: -1;
+      }
+      &:hover::after {
+        @include createAfterAndBefore(45px, 45px);
+      }
+    }
+    p {
+      color: #555;
+    }
+  }
+  .part2 {
+    img {
+      animation:
+        earthToUp 3s ease-in-out infinite,
+        rotateEarth 10s linear infinite;
+      &:hover {
+        animation-play-state: paused;
+        //stop Animation on hover
+      }
+    }
+  }
+  img.waves {
+    transform: rotate(180deg);
+    bottom: 0;
+    left: 0;
+  }
+  .arrows {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    width: 20px;
+    height: 40px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+
+    & img {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      left: 0;
+    }
+
+    & img:nth-of-type(1) {
+      animation: first 2s linear infinite;
+    }
+    & img:nth-of-type(2) {
+      animation: arrowMove2 2s linear infinite;
+    }
+    & img:nth-of-type(3) {
+      animation: arrowMove3 2s linear infinite;
+    }
+  }
+}
+/*up to home anchor*/
+a.upToHome i {
+  padding: 5px;
+  background-color: $greenColor;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 15px;
+  border-radius: 10px;
+  position: fixed;
+  top: 50%;
+  right: -0.5%;
+  transform: translateY(-50%);
+  transition-duration: 2s;
+  &.scrolled {
+    right: -10%;
+  }
+}
+
+/*dark theme*/
+body.dark-mode {
+  #home {
+    img.waves {
+      filter: brightness(0.35); /*such as in part2 image*/
+    }
+  }
+}

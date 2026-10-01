@@ -1,0 +1,12 @@
+$orangeColor: var(--orangeColor);
+$greenColor: var(--greenColor);
+
+:root {
+  --orangeColor: #ee5e00;
+  --greenColor: rgb(113, 159, 61);
+}
+
+body.dark-mode {
+  --orangeColor: #d4af37;
+  --greenColor: #496a8a;
+}

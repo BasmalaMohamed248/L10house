@@ -1,0 +1,90 @@
+@use "../abstracts/shares" as *;
+
+#about {
+  background-color: #fff;
+
+  h2 {
+    color: $orangeColor;
+    font-size: 4rem;
+    letter-spacing: 1px;
+    margin: auto;
+    text-align: center;
+    position: relative;
+    width: fit-content;
+
+    &::after {
+      content: "";
+      width: 30%;
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      background-color: $orangeColor;
+      height: 4px;
+      border-radius: 20px;
+      transform: translateX(-50%);
+      transition-duration: 0.5s;
+    }
+  }
+
+  &:hover h2::after {
+    width: 80%;
+  }
+
+  p {
+    color: #555 !important;
+    letter-spacing: 0.5px;
+  }
+
+  span {
+    font-weight: 600;
+  }
+
+  span.greenColor {
+    color: $greenColor;
+  }
+
+  span.orangeColor {
+    color: $orangeColor;
+  }
+
+  /* Responsive */
+  @include respond(350) {
+    img {
+      max-width: 300px;
+      margin: auto;
+      display: block;
+    }
+  }
+
+  @include respond(1050) {
+    img {
+      max-width: 350px;
+    }
+  }
+
+  /* dark Theme */
+  &.dark,
+  &.dark-mode {
+    background-color: #18191a;
+
+    h2 {
+      color: $orangeColor;
+
+      &::after {
+        background-color: $orangeColor;
+      }
+    }
+
+    p {
+      color: #d6d6d6 !important;
+    }
+
+    span.greenColor {
+      color: #7ed957;
+    }
+
+    span.orangeColor {
+      color: #ffb347;
+    }
+  }
+}
