@@ -36,6 +36,9 @@
     transform: translateY(30px);
     animation: toUp 0.8s ease forwards;
     animation-delay: 0.2s;
+    .orangeColor {
+      color: $greenColor;
+    }
     @include respond(350) {
       font-size: 4.5rem;
     }
@@ -159,21 +162,47 @@
 }
 /*up to home anchor*/
 a.upToHome i {
-  padding: 5px;
   background-color: $greenColor;
   color: #fff;
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 10px 15px;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  width: 35px;
+  height: 35px;
+  padding: 0 0 0 15px;
   border-radius: 10px;
   position: fixed;
   top: 50%;
   right: -0.5%;
+  z-index: 3;
   transform: translateY(-50%);
-  transition-duration: 2s;
+  overflow: hidden;
+  transition: 0.5s;
+
   &.scrolled {
     right: -10%;
+  }
+
+  &::after {
+    content: "To Up" !important;
+    display: block !important;
+    font-family: Arial, sans-serif !important;
+    font-weight: normal !important;
+    font-size: 14px;
+    margin-left: 8px;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: 0.5s;
+  }
+
+  &:hover {
+    width: 95px;
+  }
+
+  &:hover::after {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
@@ -182,6 +211,9 @@ body.dark-mode {
   #home {
     img.waves {
       filter: brightness(0.35); /*such as in part2 image*/
+    }
+    .greenColor {
+      color: $greenColor;
     }
   }
 }
