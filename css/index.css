@@ -442,7 +442,7 @@ nav.navbar .nav-link {
   color: var(--greenColor);
   position: relative;
   padding: 0;
-  transition: color 0.3s ease, transform 0.3s ease;
+  transition: 0.5s;
 }
 nav.navbar .nav-link:hover {
   transform: translateY(-3px);
@@ -645,6 +645,9 @@ body.dark-mode nav.navbar.scrolled .navbar-brand {
   animation: toUp 0.8s ease forwards;
   animation-delay: 0.2s;
 }
+#home h1 .orangeColor {
+  color: var(--greenColor);
+}
 @media (max-width: 1300px) {
   #home h1 {
     font-size: 4.5rem;
@@ -772,27 +775,52 @@ body.dark-mode nav.navbar.scrolled .navbar-brand {
 
 /*up to home anchor*/
 a.upToHome i {
-  padding: 5px;
   background-color: var(--greenColor);
   color: #fff;
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 10px 15px;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  width: 35px;
+  height: 35px;
+  padding: 0 0 0 15px;
   border-radius: 10px;
   position: fixed;
   top: 50%;
   right: -0.5%;
+  z-index: 3;
   transform: translateY(-50%);
-  transition-duration: 2s;
+  overflow: hidden;
+  transition: 0.5s;
 }
 a.upToHome i.scrolled {
   right: -10%;
+}
+a.upToHome i::after {
+  content: "To Up" !important;
+  display: block !important;
+  font-family: Arial, sans-serif !important;
+  font-weight: normal !important;
+  font-size: 14px;
+  margin-left: 8px;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: 0.5s;
+}
+a.upToHome i:hover {
+  width: 95px;
+}
+a.upToHome i:hover::after {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /*dark theme*/
 body.dark-mode #home img.waves {
   filter: brightness(0.35); /*such as in part2 image*/
+}
+body.dark-mode #home .greenColor {
+  color: var(--greenColor);
 }
 
 #about {
@@ -1699,9 +1727,10 @@ body.dark-mode #servicesPopup .box .body ol li::marker {
   background-color: rgba(255, 255, 255, 0.1490196078);
   border: 1.5px solid rgba(255, 255, 255, 0.6);
   cursor: pointer;
-  transition-duration: 1s;
+  transition: 0.5s;
   display: flex;
   align-items: center;
+  animation-fill-mode: backwards !important; /* when i link wow transition duration removed because that we must use animation fill-mode  */
   gap: 10px;
 }
 @media (max-width: 1300px) {
@@ -1742,6 +1771,7 @@ body.dark-mode #servicesPopup .box .body ol li::marker {
   width: 60%;
   height: 100%;
   background: linear-gradient(120deg, transparent, rgba(199, 191, 191, 0.8), transparent);
+  transition-duration: 0.5s;
   transform: skewX(-20deg);
 }
 #sectors a .icon {
@@ -2702,11 +2732,12 @@ body.dark-mode #langPopup .box li:hover {
   position: absolute;
   border-radius: 50%;
   z-index: -1;
+  background: rgba(255, 104, 3, 0.5) !important;
+  opacity: 1 !important;
 }
 .sectorsPart2 .circle-one {
   width: 250px;
   height: 250px;
-  background: rgba(var(--orangeColor), 0.12);
   top: -100px;
   left: -70px;
   animation: floatCircle 8s linear infinite;
@@ -2714,7 +2745,6 @@ body.dark-mode #langPopup .box li:hover {
 .sectorsPart2 .circle-two {
   width: 200px;
   height: 200px;
-  background: rgba(255, 255, 255, 0.6);
   bottom: -100px;
   right: 10%;
   animation: floatCircle 10s linear infinite reverse;
@@ -2722,7 +2752,7 @@ body.dark-mode #langPopup .box li:hover {
 .sectorsPart2 .circle-three {
   width: 120px;
   height: 120px;
-  background: rgba(var(--orangeColor), 0.08);
+  background: rgba(255, 255, 255, 0.6) !important;
   top: 40%;
   right: -50px;
   animation: floatCircle 7s linear infinite;
@@ -2826,26 +2856,64 @@ body.dark-mode #langPopup .box li:hover {
   text-align: center;
   margin-top: 25px;
 }
+.sectorsPart2 .content .owl-carousel .owl-dots .owl-dot {
+  outline: none;
+}
 .sectorsPart2 .content .owl-carousel .owl-dots .owl-dot span {
-  width: 9px;
-  height: 9px;
+  position: relative;
+  overflow: hidden;
+  display: block;
+  width: 10px;
+  height: 10px;
   margin: 0 5px;
   border-radius: 20px;
-  background: rgba(var(--orangeColor), 0.3);
-  display: block;
-  transition: all 0.4s ease;
-}
-.sectorsPart2 .content .owl-carousel .owl-dots .owl-dot.active span {
-  width: 30px;
   background: var(--orangeColor);
-  box-shadow: 0 0 10px rgba(var(--orangeColor), 0.5);
+  opacity: 0.5;
+  transition-duration: 0.5s;
+}
+.sectorsPart2 .content .owl-carousel .owl-dots .owl-dot span::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--orangeColor), #ff9a3c);
+  transform: scaleX(0);
+  transform-origin: left;
 }
 .sectorsPart2 .content .owl-carousel .owl-dots .owl-dot:hover span {
-  background: var(--orangeColor);
-  transform: scale(1.2);
+  opacity: 0.85;
+}
+.sectorsPart2 .content .owl-carousel .owl-dots .owl-dot.active span {
+  width: 25px;
+  opacity: 1;
+  background: rgba(var(--orangeColor), 0.25);
+  box-shadow: 0 0 0 3px rgba(var(--orangeColor), 0.15), 0 4px 12px rgba(var(--orangeColor), 0.45);
+}
+.sectorsPart2 .content .owl-carousel .owl-dots .owl-dot.active span::after {
+  animation: indicatorsProgress 1s linear forwards;
+}
+@keyframes indicatorsProgress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.owl-carousel .owl-stage-outer {
+  overflow: hidden;
+  padding: 20px 0 40px;
+  margin: -20px 0 -40px;
 }
 
 /*dark theme*/
+body.dark-mode span.greenColor {
+  color: var(--greenColor) !important;
+}
+body.dark-mode span.orangeColor {
+  color: var(--orangeColor) !important;
+}
 body.dark-mode #sectors::before {
   background: radial-gradient(rgba(48, 93, 0, 0.88), rgba(16, 40, 0, 0.92));
 }
@@ -2950,12 +3018,14 @@ body.dark-mode .sectorsPart2 {
   background: linear-gradient(135deg, #18191a, #202223, #18191a);
   color: #fff;
 }
-body.dark-mode .sectorsPart2 .circle-two {
-  background: rgba(255, 255, 255, 0.04);
+body.dark-mode .sectorsPart2 .circle-one {
+  background: rgba(212, 175, 55, 0.25) !important;
 }
-body.dark-mode .sectorsPart2 .circle-one,
+body.dark-mode .sectorsPart2 .circle-two {
+  background: rgba(212, 175, 55, 0.18) !important;
+}
 body.dark-mode .sectorsPart2 .circle-three {
-  opacity: 0.7;
+  background: rgba(212, 175, 55, 0.2) !important;
 }
 body.dark-mode .sectorsPart2 .head h6 {
   color: var(--orangeColor);
@@ -2967,29 +3037,89 @@ body.dark-mode .sectorsPart2 .head p {
   color: #bdbdbd;
 }
 body.dark-mode .sectorsPart2 .content .owl-carousel .box {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  height: 130px;
+  margin: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(150, 144, 144, 0.7);
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition-duration: 0.5s;
 }
 body.dark-mode .sectorsPart2 .content .owl-carousel .box img {
-  opacity: 0.8;
+  width: 75%;
+  opacity: 0.75;
+  max-height: 75px;
+  transition-duration: 0.5s;
 }
 body.dark-mode .sectorsPart2 .content .owl-carousel .box:hover {
-  background: #292b2d;
+  transform: translateY(-12px) scale(1.02);
+  background: #fff;
   border-color: rgba(var(--orangeColor), 0.5);
-  box-shadow: 0 18px 35px rgba(var(--orangeColor), 0.12);
+  box-shadow: 0 18px 35px rgba(var(--orangeColor), 0.16);
 }
 body.dark-mode .sectorsPart2 .content .owl-carousel .box:hover img {
   opacity: 1;
+  transform: scale(1.1);
+}
+body.dark-mode .sectorsPart2 .content .owl-carousel .owl-dots {
+  text-align: center;
+  margin-top: 25px;
+}
+body.dark-mode .sectorsPart2 .content .owl-carousel .owl-dots .owl-dot {
+  outline: none;
 }
 body.dark-mode .sectorsPart2 .content .owl-carousel .owl-dots .owl-dot span {
-  background: rgba(var(--orangeColor), 0.25);
-}
-body.dark-mode .sectorsPart2 .content .owl-carousel .owl-dots .owl-dot.active span {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  border-radius: 20px;
   background: var(--orangeColor);
+  opacity: 0.5;
+  transition-duration: 0.5s;
+}
+body.dark-mode .sectorsPart2 .content .owl-carousel .owl-dots .owl-dot span::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--orangeColor), #ff9a3c);
+  transform: scaleX(0);
+  transform-origin: left;
 }
 body.dark-mode .sectorsPart2 .content .owl-carousel .owl-dots .owl-dot:hover span {
-  background: var(--orangeColor);
+  opacity: 0.85;
+}
+body.dark-mode .sectorsPart2 .content .owl-carousel .owl-dots .owl-dot.active span {
+  width: 25px;
+  opacity: 1;
+  background: rgba(var(--orangeColor), 0.25);
+  box-shadow: 0 0 0 3px rgba(var(--orangeColor), 0.15), 0 4px 12px rgba(var(--orangeColor), 0.45);
+}
+body.dark-mode .sectorsPart2 .content .owl-carousel .owl-dots .owl-dot.active span::after {
+  animation: indicatorsProgress 1s linear forwards;
+}
+@keyframes indicatorsProgress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+body.dark-mode #why_us .col-lg-4 .item {
+  background-color: var(--orangeColor) !important;
+}
+
+body.dark-mode #langPopup .box section:nth-of-type(odd) h2,
+body.dark-mode #langPopup .box section:nth-of-type(odd) i {
+  color: var(--greenColor) !important;
 }
 
 #contact {
